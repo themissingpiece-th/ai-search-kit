@@ -19,7 +19,7 @@ Settings → Plugins → **+ Add → Add marketplace → Add from a repository**
 | Skill | ทำอะไร | สถานะ |
 |---|---|---|
 | `kit-guide` | ไม่แน่ใจว่าใช้ตัวไหน → พิมพ์ `/kit-guide` ถามว่าอยากทำอะไร แล้วชี้ skill ที่ถูก + สิ่งที่ต้องเตรียม + ประโยคสั่ง | ✅ v0.1 |
-| `prompt-finder` | เลือก prompt ที่ควร track ด้วย Prompt Map 5 ขั้น → Prompt Set 10 ข้อ (Excel + CSV นำเข้าระบบวัดผล) | ✅ v0.2 |
+| `prompt-finder` | เลือก prompt ที่ควร track ด้วย Prompt Map 5 ขั้น → Prompt Set 10 ข้อ (Excel + CSV นำเข้าระบบวัดผล) · มี prompt อยู่แล้ว? วางมาให้คะแนน 5 ด้าน + ติดธงข้อที่วัดเพี้ยน | ✅ v0.3 |
 | `ai-visibility-check` | อ่านผลวัด บอกว่าแบรนด์ไม่ถูกแสดงในคำถามไหน ใครถูกแสดงแทน และควรทำอะไร ทำอย่างไร | ✅ v0.1 |
 | `site-readiness-audit` | ตรวจความพร้อมเว็บ AI Discover / Understand / Trust → Top 3 fixes + ข้อความส่งทีมเว็บ | ✅ v0.1 |
 | `brand-brain` | ให้ AI เรียนรู้แบรนด์และสินค้า (จากข้อมูลที่ให้ + ศึกษาจากเว็บเอง) แล้วจำไว้เป็นไฟล์ Brand Brain | ✅ v0.1 |
