@@ -6,7 +6,7 @@
 ## ติดตั้งใน Claude Cowork (แท็บ Home) — ทางหลักสำหรับผู้เรียน
 1. ดาวน์โหลดไฟล์จาก **themissingpiece.co.th/ai-search-kit** (= `dist/ai-search-kit.plugin` เวอร์ชันล่าสุด)
 2. Claude Desktop → Home → Cowork → แชตใหม่ → **+ → Add files or photos** → เลือกไฟล์
-3. พิมพ์: "ติดตั้งเลย — คัดลอกไฟล์ ai-search-kit.plugin ไปไว้ในโฟลเดอร์ outputs แล้วส่งไฟล์กลับมาให้ฉันกด Save plugin" → ถ้าถาม Running command กด Allow once
+3. พิมพ์: "ติดตั้ง" → ถ้าถาม Running command กด Allow once
 4. กดปุ่ม **Save plugin** บนการ์ดที่ Claude ส่งกลับ → "Plugin changes applied"
 5. **Settings → Capabilities** → เปิด *Cloud code execution and file creation* + *Allow network egress* → Domain allowlist = **All domains** (skill ที่ตรวจเว็บต้องอ่านหน้าเว็บจริง)
 6. ใช้งาน: แชตใหม่ พิมพ์ `/prompt-finder` (หรือ `/` แล้วเลือก) · ไม่แน่ใจว่าใช้ตัวไหน → `/kit-guide`
