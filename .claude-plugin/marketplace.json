@@ -1,0 +1,15 @@
+{
+  "name": "the-missing-piece",
+  "owner": {
+    "name": "The Missing Piece",
+    "url": "https://themissingpiece.co.th"
+  },
+  "description": "AI Search Kit โดย The Missing Piece — skill ภาษาไทยสำหรับ SEO & AI Search",
+  "plugins": [
+    {
+      "name": "ai-search-kit",
+      "source": "./plugins/ai-search-kit",
+      "description": "ชุด skill สำหรับ SEO & AI Search: เลือก prompt ที่ควร track, อ่านผล AI visibility, ตรวจความพร้อมเว็บ, Brand Brain, เขียนและตรวจ content ให้ AI หยิบไปตอบ, แผน 30 วัน, AI Search Manager"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+ "brand": "BYD",
+ "aliases": [
+  "BYD",
+  "บีวายดี"
+ ],
+ "website": "https://www.byd.com/th",
+ "product": "รถยนต์ไฟฟ้า",
+ "audience": "คนเมืองซื้อรถ EV คันแรก งบ 0.8–1.5 ล้าน",
+ "competitors": [
+  "MG",
+  "Tesla",
+  "Deepal",
+  "Neta",
+  "GWM ORA"
+ ],
+ "market": "TH",
+ "language": "th",
+ "topics": [
+  {
+   "name": "ชาร์จสะดวก",
+   "evidence": "ตัวอย่าง (AI ช่วยคิด)"
+  },
+  {
+   "name": "คุ้มค่า",
+   "evidence": "keyword รถ ev / รถยนต์ไฟฟ้า มี volume"
+  },
+  {
+   "name": "ความปลอดภัย/แบต",
+   "evidence": "ตัวอย่าง (AI ช่วยคิด)"
+  }
+ ],
+ "prompts": [
+  {
+   "prompt": "อยู่คอนโด ชาร์จที่บ้านไม่ได้ งบไม่เกิน 1 ล้าน รถยนต์ไฟฟ้ารุ่นไหนเหมาะที่สุด",
+   "topic": "ชาร์จสะดวก",
+   "stage": "Comparison",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Comparison · คนเมืองกลุ่มใหญ่ AI ตอบเป็นรายชื่อรุ่น"
+  },
+  {
+   "prompt": "ซื้อรถ EV คันแรก ไม่มีที่ชาร์จที่บ้าน ควรเลือกยี่ห้อไหนที่มีสถานีชาร์จเยอะในกรุงเทพ",
+   "topic": "ชาร์จสะดวก",
+   "stage": "Decision",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Decision · เกณฑ์ตัดสินใจจริงคือเครือข่ายชาร์จ"
+  },
+  {
+   "prompt": "รถยนต์ไฟฟ้าราคาไม่เกิน 8 แสน ยี่ห้อไหนคุ้มที่สุด วิ่งในเมืองทุกวัน",
+   "topic": "คุ้มค่า",
+   "stage": "Comparison",
+   "branded": false,
+   "source": "keyword",
+   "scores": {
+    "business": 3,
+    "demand": 3,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Comparison · งบชัด + มี volume คำว่า รถ ev"
+  },
+  {
+   "prompt": "รถ EV กับรถน้ำมัน ใช้ 5 ปี ค่าใช้จ่ายรวมต่างกันเท่าไร รุ่นไหนคุ้มสุด",
+   "topic": "คุ้มค่า",
+   "stage": "Evaluation",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 2,
+    "demand": 2,
+    "mention": 2,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Evaluation · เปิดทางเทียบค่าใช้จ่ายรวม"
+  },
+  {
+   "prompt": "รถยนต์ไฟฟ้ายี่ห้อไหนแบตเตอรี่ปลอดภัยที่สุด ไม่ไฟไหม้ รับประกันแบตนานที่สุด",
+   "topic": "ความปลอดภัย/แบต",
+   "stage": "Comparison",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 3,
+    "risk": 3
+   },
+   "selected": true,
+   "why": "Comparison · ความกังวลหลัก + เสี่ยงถ้า AI ตอบผิด"
+  },
+  {
+   "prompt": "เทียบรถยนต์ไฟฟ้า MG Tesla Deepal ยี่ห้อไหนดีที่สุดสำหรับคนซื้อคันแรก",
+   "topic": "คุ้มค่า",
+   "stage": "Decision",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Decision · เทียบหลายแบรนด์ เห็นว่า AI ดึงเราเข้ามาไหม"
+  },
+  {
+   "prompt": "รถยนต์ไฟฟ้า SUV ไซซ์กลาง สำหรับครอบครัว งบ 1.2 ล้าน รุ่นไหนปลอดภัยสุด",
+   "topic": "ความปลอดภัย/แบต",
+   "stage": "Comparison",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 2,
+    "risk": 3
+   },
+   "selected": true,
+   "why": "Comparison · กลุ่มครอบครัว + ความปลอดภัย"
+  },
+  {
+   "prompt": "BYD Atto 3 ราคาเท่าไร รับประกันแบตกี่ปี ค่าบำรุงรักษาต่อปีเท่าไร",
+   "topic": "ความปลอดภัย/แบต",
+   "stage": "Decision",
+   "branded": true,
+   "source": "keyword",
+   "scores": {
+    "business": 3,
+    "demand": 3,
+    "mention": 3,
+    "win": 3,
+    "risk": 3
+   },
+   "selected": true,
+   "why": "Branded · ตรวจว่า AI พูดราคา/ประกันถูกไหม"
+  },
+  {
+   "prompt": "BYD กับ MG รถไฟฟ้ายี่ห้อไหนดีกว่ากัน เรื่องคุณภาพและศูนย์บริการ",
+   "topic": "คุ้มค่า",
+   "stage": "Decision",
+   "branded": true,
+   "source": "ai",
+   "scores": {
+    "business": 3,
+    "demand": 2,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": true,
+   "why": "Branded · เทียบตรงกับคู่แข่งหลัก"
+  },
+  {
+   "prompt": "รถ BYD มีข้อเสียอะไรบ้าง ขายต่อราคาตกไหม",
+   "topic": "คุ้มค่า",
+   "stage": "Decision",
+   "branded": true,
+   "source": "customer",
+   "scores": {
+    "business": 2,
+    "demand": 3,
+    "mention": 3,
+    "win": 2,
+    "risk": 3
+   },
+   "selected": true,
+   "why": "Branded · sentiment + ความกังวลราคาขายต่อ"
+  },
+  {
+   "prompt": "รถยนต์ไฟฟ้าดีกว่ารถน้ำมันยังไง เหมาะกับใคร",
+   "topic": "คุ้มค่า",
+   "stage": "Discovery",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 1,
+    "demand": 2,
+    "mention": 1,
+    "win": 2,
+    "risk": 1
+   },
+   "selected": false,
+   "why": ""
+  },
+  {
+   "prompt": "ชาร์จรถไฟฟ้าที่คอนโดต้องทำยังไง ขออนุญาตนิติไหม",
+   "topic": "ชาร์จสะดวก",
+   "stage": "Evaluation",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 2,
+    "demand": 2,
+    "mention": 2,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": false,
+   "why": ""
+  },
+  {
+   "prompt": "รถยนต์ไฟฟ้า 7 ที่นั่งมีรุ่นไหนบ้าง",
+   "topic": "ครอบครัว",
+   "stage": "Comparison",
+   "branded": false,
+   "source": "ai",
+   "scores": {
+    "business": 2,
+    "demand": 2,
+    "mention": 3,
+    "win": 1,
+    "risk": 2
+   },
+   "selected": false,
+   "why": ""
+  },
+  {
+   "prompt": "BYD Dolphin กับ ORA Good Cat ต่างกันยังไง",
+   "topic": "คุ้มค่า",
+   "stage": "Comparison",
+   "branded": true,
+   "source": "keyword",
+   "scores": {
+    "business": 2,
+    "demand": 3,
+    "mention": 3,
+    "win": 2,
+    "risk": 2
+   },
+   "selected": false,
+   "why": ""
+  }
+ ]
+}
