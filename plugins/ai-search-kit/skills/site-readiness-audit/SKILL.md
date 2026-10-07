@@ -1,6 +1,6 @@
 ---
 name: site-readiness-audit
-description: ตรวจความพร้อมของเว็บไซต์สำหรับ SEO และ AI Search (Google AI Overviews / AI Mode, ChatGPT, Gemini, Perplexity) แบบ 3 ชั้น Access → Understand → Trust แล้วสรุป Top 3 สิ่งที่ต้องแก้ก่อน ใช้เมื่อผู้ใช้ขอ "ตรวจเว็บ", "เช็คความพร้อมเว็บ", "AI readiness", "website audit", "bot ของ AI เข้าเว็บได้ไหม", "robots.txt บล็อก AI ไหม" หรือส่ง URL มาให้ตรวจ
+description: ใช้เมื่ออยากรู้ว่าเว็บพร้อมให้ AI เข้าถึง-เข้าใจ-เชื่อถือไหม ("ตรวจเว็บ", "robots.txt บล็อก AI ไหม", "AI readiness", "website audit") หรือมีรายงาน AI Discover Check จาก Mention Lab ให้แปลเป็นงาน — ตรวจ 3 ชั้น Access → Understand → Trust (Google AI Overviews / AI Mode, ChatGPT, Gemini, Perplexity) แล้วสรุป Top 3 สิ่งที่ต้องแก้ก่อน + ข้อความส่งทีมเว็บ
 ---
 
 # Site Readiness Audit (ตรวจความพร้อมเว็บสำหรับ SEO & AI Search)

@@ -9,13 +9,14 @@
 3. ช่อง URL พิมพ์ `themissingpiece-th/ai-search-kit` → **Sync**
 4. "AI Search Kit" จะขึ้นในแท็บ Yours → **Install** → เปิด "Sync automatically" เพื่อรับเวอร์ชันใหม่
 5. **Settings → Capabilities** → เปิด *Cloud code execution and file creation* + *Allow network egress* → Domain allowlist = **All domains** (skill ที่ตรวจเว็บต้องอ่านหน้าเว็บจริง)
-6. ใช้งาน: เปิดแชตใหม่ พิมพ์ `/` แล้วเลือก skill (เช่น `/prompt-finder`) หรือพิมพ์สั่งงานภาษาไทยธรรมดา
+6. ใช้งาน: เปิดแชตใหม่ พิมพ์ `/` แล้วเลือก skill (เช่น `/prompt-finder`) หรือพิมพ์สั่งงานภาษาไทยธรรมดา · ไม่แน่ใจว่าใช้ตัวไหน → `/kit-guide`
 
 ทางเลือก: ดาวน์โหลด zip ใน `dist/` แล้วใช้ **+ Add ▾ → Upload plugin**
 
 ## Skill ในชุด
 | Skill | ทำอะไร | สถานะ |
 |---|---|---|
+| `kit-guide` | ไม่แน่ใจว่าใช้ตัวไหน → พิมพ์ `/kit-guide` ถามว่าอยากทำอะไร แล้วชี้ skill ที่ถูก + สิ่งที่ต้องเตรียม + ประโยคสั่ง | ✅ v0.1 |
 | `prompt-finder` | เลือก prompt ที่ควร track ด้วย Prompt Map 5 ขั้น → Prompt Set 10 ข้อ (Excel + CSV นำเข้าระบบวัดผล) | ✅ v0.2 |
 | `ai-visibility-check` | อ่านผลวัด บอกว่าแบรนด์ไม่ถูกแสดงในคำถามไหน ใครถูกแสดงแทน และควรทำอะไร ทำอย่างไร | ✅ v0.1 |
 | `site-readiness-audit` | ตรวจความพร้อมเว็บ AI Discover / Understand / Trust → Top 3 fixes + ข้อความส่งทีมเว็บ | ✅ v0.1 |

@@ -1,6 +1,6 @@
 ---
 name: prompt-finder
-description: หา prompt ที่ควร track ใน AI Search (Google AI Overviews, Google AI Mode, ChatGPT, Gemini) ด้วยกรอบ Prompt Map 5 ขั้น (Demand → Journey → Prompt Anatomy → Topic = เกณฑ์ตัดสินใจ → Score & Set) แล้วคัดเหลือ 10 ข้อ (non-branded 7 + branded 3) พร้อมไฟล์ Excel และไฟล์ CSV สำหรับนำเข้าระบบวัดผล ใช้เมื่อผู้ใช้ขอ "หา prompt", "prompt research", "prompt ที่ควร track", "เลือก prompt ยังไง", "AI จะแนะนำแบรนด์เราตอนลูกค้าถามอะไร" หรือส่งสินค้า/keyword มาให้วางแผนวัด AI visibility
+description: ใช้เมื่ออยากรู้ว่าลูกค้าถาม AI ว่าอะไร หรือต้องเลือก prompt ที่ควร track ("หา prompt", "prompt research", "เลือก prompt ยังไง", "AI จะแนะนำแบรนด์เราตอนลูกค้าถามอะไร") — เลือก prompt ใน AI Search (Google AI Overviews, AI Mode, ChatGPT, Gemini) ด้วยกรอบ Prompt Map 5 ขั้น แล้วคัดเหลือ 10 ข้อ (non-branded 7 + branded 3) พร้อมไฟล์ Excel และ CSV นำเข้า Mention Lab
 ---
 
 # Prompt Finder v2 — เลือก prompt ด้วย Prompt Map

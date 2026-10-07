@@ -1,6 +1,6 @@
 ---
 name: ai-visibility-check
-description: อ่านผลวัด AI visibility (Google AI Overviews, Google AI Mode, ChatGPT, Gemini) แล้วบอกว่าแบรนด์ไม่ถูกแสดงในคำถามไหน ใครถูกแสดงแทน เว็บไหนถูกอ้าง และแนะนำว่าควรทำอะไร ทำอย่างไร เรียงตามลำดับความสำคัญ รับไฟล์ export จากระบบวัดผล (CSV) ไฟล์ Excel จาก prompt-finder ที่กรอกผลเอง หรือคำตอบ AI ที่ copy มาวาง ใช้เมื่อผู้ใช้ขอ "อ่านผล tracking", "AI visibility", "แบรนด์เราติดไหม", "ทำไม AI ไม่แนะนำเรา", "baseline", "mention rate", "share of voice" หรือส่งไฟล์ผลวัดมา
+description: ใช้เมื่อมีผลวัดจาก Mention Lab (ไฟล์ CSV) ไฟล์ Excel ที่กรอกผลเอง หรือคำตอบ AI ที่ copy มา แล้วอยากรู้ว่าแบรนด์แพ้ prompt ไหน แพ้ใคร ต้องทำอะไร ("อ่านผล tracking", "ทำไม AI ไม่แนะนำเรา", "baseline", "mention rate", "share of voice") — ให้สถานะ Lead / Chasing / Absent ต่อ prompt แยก branded กับ non-branded และงานที่ควรทำไม่เกิน 5 ข้อ
 ---
 
 # AI Visibility Check — แพ้ตรงไหน แพ้ใคร ต้องทำอะไร

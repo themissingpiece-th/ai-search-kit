@@ -1,6 +1,6 @@
 ---
 name: ai-citable-page-check
-description: ตรวจหน้าเว็บหรือร่าง content ก่อนเผยแพร่ ว่า AI (Google AI Overviews / AI Mode, ChatGPT, Gemini) หยิบไปตอบได้ไหม และข้อมูลถูกต้องตรงแหล่งทางการไหม ด้วย checklist 14 ข้อ ให้ผล ผ่าน / ควรปรับ / ไม่ผ่าน พร้อมข้อความที่เขียนใหม่ให้ทันที ใช้เมื่อผู้ใช้ขอ "ตรวจหน้านี้", "หน้านี้ AI จะหยิบไปตอบไหม", "เช็ก content ก่อนโพสต์", "AI-citable", "ตรวจร่าง" หรือต่อจาก ai-content-writer
+description: ใช้เมื่อจะเผยแพร่ content หรืออยากรู้ว่าหน้าเดิมทำไม AI ไม่หยิบไปตอบ ("ตรวจหน้านี้", "เช็ก content ก่อนโพสต์", "AI-citable", "ตรวจร่าง") และต่อจาก ai-content-writer — checklist 14 ข้อ ว่า AI (Google AI Overviews / AI Mode, ChatGPT, Gemini) หยิบไปตอบได้ไหมและข้อมูลถูกต้องตรงแหล่งทางการไหม ให้ผล ผ่าน / ควรปรับ / ไม่ผ่าน พร้อมข้อความที่เขียนใหม่ให้ทันที
 ---
 
 # AI-Citable Page Check — ตรวจก่อนเผยแพร่
