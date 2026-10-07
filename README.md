@@ -4,7 +4,7 @@
 แจกในคอร์ส "Building Your AI Search Strategy (SEO, AEO & GEO)"
 
 ## ติดตั้งใน Claude Cowork (แท็บ Home) — ทางหลักสำหรับผู้เรียน
-1. ดาวน์โหลด `dist/ai-search-kit.plugin`
+1. ดาวน์โหลดไฟล์จาก **themissingpiece.co.th/ai-search-kit** (= `dist/ai-search-kit.plugin` เวอร์ชันล่าสุด)
 2. Claude Desktop → Home → Cowork → แชตใหม่ → **+ → Add files or photos** → เลือกไฟล์
 3. พิมพ์: "ติดตั้งเลย — คัดลอกไฟล์ ai-search-kit.plugin ไปไว้ในโฟลเดอร์ outputs แล้วส่งไฟล์กลับมาให้ฉันกด Save plugin" → ถ้าถาม Running command กด Allow once
 4. กดปุ่ม **Save plugin** บนการ์ดที่ Claude ส่งกลับ → "Plugin changes applied"
