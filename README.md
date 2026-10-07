@@ -11,7 +11,7 @@
 5. **Settings → Capabilities** → เปิด *Cloud code execution and file creation* + *Allow network egress* → Domain allowlist = **All domains** (skill ที่ตรวจเว็บต้องอ่านหน้าเว็บจริง)
 6. ใช้งาน: เปิดแชตใหม่ พิมพ์ `/` แล้วเลือก skill (เช่น `/prompt-finder`) หรือพิมพ์สั่งงานภาษาไทยธรรมดา · ไม่แน่ใจว่าใช้ตัวไหน → `/kit-guide`
 
-ทางเลือก: ดาวน์โหลด zip ใน `dist/` แล้วใช้ **+ Add ▾ → Upload plugin**
+**ใช้ใน Cowork (แท็บ Home):** ดาวน์โหลด `dist/ai-search-kit.plugin` → Settings → Plugins → **+ Add ▾ → Upload plugin** → เลือกไฟล์ → ใน Cowork กด **+ → Plugins** จะเห็น AI Search Kit · เรียกใช้ด้วย `/ai-search-kit:prompt-finder` (marketplace ด้านบนใช้กับแท็บ Code / Claude Code)
 
 ## Skill ในชุด
 | Skill | ทำอะไร | สถานะ |
