@@ -3,15 +3,17 @@
 ชุด skill ภาษาไทยสำหรับ Claude Cowork / Claude Code ช่วยทำ SEO & AI Search โดยไม่ต้องซื้อ tool เพิ่ม
 แจกในคอร์ส "Building Your AI Search Strategy (SEO, AEO & GEO)"
 
-## ติดตั้ง (Claude Desktop / Cowork)
-1. คลิกอีเมลของคุณมุมซ้ายล่าง → **Settings** → Customize → **Plugins**
-2. มุมขวาบน **+ Add ▾** → **Add marketplace** → **Add from a repository**
-3. ช่อง URL พิมพ์ `themissingpiece-th/ai-search-kit` → **Sync**
-4. "AI Search Kit" จะขึ้นในแท็บ Yours → **Install** → เปิด "Sync automatically" เพื่อรับเวอร์ชันใหม่
+## ติดตั้งใน Claude Cowork (แท็บ Home) — ทางหลักสำหรับผู้เรียน
+1. ดาวน์โหลด `dist/ai-search-kit.plugin`
+2. Claude Desktop → Home → Cowork → แชตใหม่ → **+ → Add files or photos** → เลือกไฟล์
+3. พิมพ์: "ติดตั้งเลย — คัดลอกไฟล์ ai-search-kit.plugin ไปไว้ในโฟลเดอร์ outputs แล้วส่งไฟล์กลับมาให้ฉันกด Save plugin" → ถ้าถาม Running command กด Allow once
+4. กดปุ่ม **Save plugin** บนการ์ดที่ Claude ส่งกลับ → "Plugin changes applied"
 5. **Settings → Capabilities** → เปิด *Cloud code execution and file creation* + *Allow network egress* → Domain allowlist = **All domains** (skill ที่ตรวจเว็บต้องอ่านหน้าเว็บจริง)
-6. ใช้งาน: เปิดแชตใหม่ พิมพ์ `/` แล้วเลือก skill (เช่น `/prompt-finder`) หรือพิมพ์สั่งงานภาษาไทยธรรมดา · ไม่แน่ใจว่าใช้ตัวไหน → `/kit-guide`
+6. ใช้งาน: แชตใหม่ พิมพ์ `/prompt-finder` (หรือ `/` แล้วเลือก) · ไม่แน่ใจว่าใช้ตัวไหน → `/kit-guide`
+อัปเดตเวอร์ชัน: ดาวน์โหลดไฟล์ใหม่แล้วทำข้อ 2–4 ซ้ำ (ระบบจะถาม Replace)
 
-**ใช้ใน Cowork (แท็บ Home):** ดาวน์โหลด `dist/ai-search-kit.plugin` → Settings → Plugins → **+ Add ▾ → Upload plugin** → เลือกไฟล์ → ใน Cowork กด **+ → Plugins** จะเห็น AI Search Kit · เรียกใช้ด้วย `/ai-search-kit:prompt-finder` (marketplace ด้านบนใช้กับแท็บ Code / Claude Code)
+## ติดตั้งใน Claude Code (แท็บ Code) — ทางเลือก
+Settings → Plugins → **+ Add → Add marketplace → Add from a repository** → `themissingpiece-th/ai-search-kit` → Sync → Add · (Cowork ไม่เห็น plugin ที่ติดตั้งทางนี้)
 
 ## Skill ในชุด
 | Skill | ทำอะไร | สถานะ |

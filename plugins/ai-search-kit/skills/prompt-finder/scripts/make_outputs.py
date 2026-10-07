@@ -12,7 +12,7 @@ JSON shape:
   "topics": [{"name": "ชาร์จสะดวก", "evidence": "ลูกค้าถามบ่อยเรื่องชาร์จที่คอนโด"}],
   "prompts": [
     {"prompt": "...", "topic": "ชาร์จสะดวก", "stage": "Discovery|Evaluation|Comparison|Decision",
-     "branded": false, "source": "customer|gsc|keyword|ai",
+     "branded": false, "source": "customer|user|gsc|keyword|ai",
      "scores": {"business": 3, "demand": 2, "mention": 3, "win": 2, "risk": 2},
      "selected": true, "why": "..."}
   ]
@@ -22,7 +22,7 @@ import csv, json, os, sys
 
 W = {'business': .30, 'demand': .20, 'mention': .20, 'win': .15, 'risk': .15}
 STAGES = ('Discovery', 'Evaluation', 'Comparison', 'Decision')
-SRC = {'customer': 'ลูกค้าถามจริง', 'gsc': 'Google Search Console', 'keyword': 'keyword / AI volume', 'ai': 'AI ช่วยคิด'}
+SRC = {'customer': 'ลูกค้าถามจริง', 'user': 'ผู้ใช้ให้มา', 'gsc': 'Google Search Console', 'keyword': 'keyword / AI volume', 'ai': 'AI ช่วยคิด'}
 PLATFORMS = ('Google AI Overviews', 'Google AI Mode', 'ChatGPT', 'Gemini')
 
 
