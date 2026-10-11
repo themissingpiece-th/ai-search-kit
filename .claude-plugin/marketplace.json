@@ -9,7 +9,7 @@
     {
       "name": "ai-search-kit",
       "source": "./plugins/ai-search-kit",
-      "description": "ชุด skill สำหรับ SEO & AI Search: เลือก prompt ที่ควร track, อ่านผล AI visibility, ตรวจความพร้อมเว็บ, Brand Brain, เขียนและตรวจ content ให้ AI หยิบไปตอบ, แผน 30 วัน, AI Search Manager"
+      "description": "ชุด skill สำหรับ SEO & AI Search: เลือก prompt ที่ควร track, อ่านผล AI visibility, ตรวจความพร้อมเว็บ, Brand Brain, เขียนและตรวจ content ให้ AI หยิบไปตอบ, และ (กำลังมา) แผน 30 วัน, AI Search Manager"
     }
   ]
 }
