@@ -90,8 +90,13 @@ def check(d, chosen, ps=()):
     b = [p for p in chosen if p.get('branded')]
     if len(chosen) != 10:
         warn.append(f'เลือก {len(chosen)} ข้อ (ควรเป็น 10)')
-    if len(nb) != 7 or len(b) != 3:
-        warn.append(f'non-branded {len(nb)} / branded {len(b)} (ควรเป็น 7 / 3)')
+    if not 2 <= len(b) <= 3:
+        warn.append(f'branded {len(b)} ข้อ (ควรมีชื่อแบรนด์ 2–3 ข้อ · ที่เหลือ non-branded)')
+    tc = {}
+    for p in chosen:
+        tc[p.get('topic', '')] = tc.get(p.get('topic', ''), 0) + 1
+    if len(tc) != 5 or any(v != 2 for v in tc.values()):
+        warn.append('หัวข้อ: ' + ' · '.join(f'{k or "(ไม่ระบุ)"} {v}' for k, v in tc.items()) + ' (ชุดคลาสควรเป็น 5 หัวข้อ × 2)')
     if sum(p.get('stage') in ('Comparison', 'Decision') for p in nb) < 5:
         warn.append('non-branded ที่เป็น Comparison/Decision น้อยกว่า 5 ข้อ')
     if sum(p.get('stage') == 'Discovery' for p in chosen) > 1:
@@ -174,7 +179,7 @@ def write_xlsx(d, ps, chosen, path):
         ['คู่แข่ง', ', '.join(d.get('competitors', []))], ['ตลาด / ภาษา', f"{d.get('market', '')} / {d.get('language', '')}"],
         ['หัวข้อที่โฟกัส', ' · '.join(t['name'] for t in d.get('topics', []))],
         ['', ''],
-        ['ชีต Prompt Set', '10 ข้อที่ควร track: non-branded 7 (AI เลือกเราไหม) + branded 3 (AI พูดถึงเราถูกไหม)'],
+        ['ชีต Prompt Set', '10 ข้อที่ควร track: 5 หัวข้อ × 2 · non-branded 7–8 (AI เลือกเราไหม) + มีชื่อแบรนด์ 2–3 (AI พูดถึงเราถูกไหม)'],
         ['นำเข้าระบบวัดผล', 'ใช้ไฟล์ prompt-set-import-*.csv ที่ได้มาพร้อมกัน'],
         ['วัดด้วยมือ', 'ชีต Tracking: ถามแต่ละข้อใน Google AI Overviews → Google AI Mode → ChatGPT → Gemini รอบละ 3 ครั้ง (ไม่ login) แล้วกรอก · วัดซ้ำรายสัปดาห์ด้วยถ้อยคำเดิม'],
         ['ID / ถ้อยคำ', 'P01–P10 คือรหัสประจำ prompt ใช้จับคู่ผลข้ามรอบ · copy ถ้อยคำจากไฟล์นี้ไปวาง ห้ามพิมพ์ใหม่ (วรรณยุกต์/ตัวสะกดเพี้ยนตัวเดียว = prompt ใหม่)'],
