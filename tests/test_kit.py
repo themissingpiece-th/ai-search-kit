@@ -256,3 +256,24 @@ def test_end_to_end_examples():
         assert res['non_branded']['prompts'][0]['prompt_id'] == 'P01'
     finally:
         shutil.rmtree(d)
+
+
+# ---------- class metrics (M1/M3): SoV = our names ÷ all brand names, n and ± ----------
+
+def test_sov_class_definition_and_margin():
+    # slide M1 example: 10 answers, us in 4, 16 brand names in total → Mention 40% ±30 · SoV 4/16 = 25%
+    brands = ['BYD|MG', 'MG', 'BYD|MG', 'MG|Tesla', 'Tesla', 'BYD|MG', 'MG', 'Tesla', 'BYD|Tesla|MG', 'MG']
+    assert sum(len(b.split('|')) for b in brands) == 16
+    rows = []
+    for i, b in enumerate(brands, 1):
+        r = _row(NB0, mentioned='Y' if b.startswith('BYD') else 'N', run_no=i)
+        r['brands_mentioned'] = b + ('|BYD' if b.startswith('BYD') else '')  # duplicate name in one answer counts once
+        rows.append(r)
+    res, md, js, out = _run(rows, brand='BYD')
+    nb = res['non_branded']
+    assert nb['mention_rate'] == 40 and nb['answers'] == 10 and nb['margin'] == 30
+    assert nb['sov_all'] == 25.0 and nb['brands_named'] == 3
+    assert nb['sov_band'].startswith('ต่ำกว่าค่าเฉลี่ย 33.3%')  # 3 brands → bands for 8–15 brands don't apply
+    assert A.margin(40, 120) == 9
+    assert [A.sov_band(v, 12) for v in (4.9, 5, 10, 20)] == ['แทบไม่มีเสียง', 'อยู่ในวง', 'กลุ่มนำ', 'เจ้าที่']
+    assert '±30 (n = 10' in md and 'ถ่วงตำแหน่ง' not in md

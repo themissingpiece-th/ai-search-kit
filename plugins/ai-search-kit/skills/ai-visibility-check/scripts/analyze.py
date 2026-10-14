@@ -13,10 +13,13 @@ Input B: the "Tracking (วัดด้วยมือ)" sheet of prompt-finder'
 --brain:   path of brand-brain-<brand>.md if there is one (else the report warns that branded facts can't be verified).
 Writes <out>.json (numbers for the AI to reason over) and <out>.md (tables for the user).
 Only rows with status=ok count in rates; errors / no answer are reported separately.
+Mention rate comes with n (answers counted) and ±95% (normal approximation, as taught in class).
+Share of Voice = our brand names ÷ all brand names in the answers (each brand counted once per answer,
+class definition, not position-weighted).
 Prompt text is compared after Unicode NFC + whitespace clean-up (never NFKC: it splits Thai "ำ").
 Warnings (wording drift, branded label vs text) go to the top of stdout, .md and .json.
 """
-import csv, difflib, json, os, re, sys, unicodedata
+import csv, difflib, json, math, os, re, sys, unicodedata
 from collections import Counter, defaultdict
 
 POS_W = {1: 1.0, 2: 0.8, 3: 0.6, 4: 0.4}  # >=5 -> 0.2, absent -> 0
@@ -257,6 +260,35 @@ def rate(rows):
     return (round(100 * sum(yn(r['brand_mentioned']) for r in ok) / len(ok)) if ok else None), len(ok)
 
 
+def margin(pct, n):
+    """±95% in percentage points for a rate (normal approximation, e.g. 40% n=10 → ±30, n=120 → ±9)."""
+    if pct is None or not n:
+        return None
+    p = pct / 100
+    return round(196 * math.sqrt(p * (1 - p) / n))
+
+
+def sov_band(v, n_brands=None):
+    """Class bands (M3) for a topic with about 8–15 competing brands; fewer brands → compare with the average."""
+    if v is None:
+        return '-'
+    if n_brands and n_brands < 8:
+        avg = round(100 / n_brands, 1)
+        return f'{"สูงกว่า" if v > avg else "ต่ำกว่า"}ค่าเฉลี่ย {avg}% (แบรนด์น้อย ใช้ 4 ช่วงตรง ๆ ไม่ได้)'
+    return ('แทบไม่มีเสียง' if v < 5 else 'อยู่ในวง' if v < 10 else 'กลุ่มนำ' if v < 20 else 'เจ้าที่')
+
+
+def sov_of(sub, key=None):
+    """Share of Voice per group: {group: {brand: %}} — each brand once per answer, ÷ all brand names."""
+    cnt = defaultdict(Counter)
+    for r in sub:
+        if r.get('status', 'ok') != 'ok':
+            continue
+        names = list(dict.fromkeys(split(r.get('brands_mentioned'))))
+        cnt[key(r) if key else 'all'].update(names)
+    return {g: {b: round(100 * v / sum(c.values()), 1) for b, v in c.most_common()} for g, c in cnt.items() if sum(c.values())}
+
+
 def main(path, brand=None, out='report', aliases=None, prompts=None, brain=None):
     rows = load(path)
     brand = brand or (rows[0].get('project_brand') if rows else '') or 'เรา'
@@ -274,26 +306,25 @@ def main(path, brand=None, out='report', aliases=None, prompts=None, brain=None)
     for lbl, flag in (('non_branded', 'N'), ('branded', 'Y')):
         sub = [r for r in rows if group.get(r['prompt_id']) == flag]
         m, n = rate(sub)
-        block = {'mention_rate': m, 'answers': n, 'by_platform': {}, 'by_topic': {}, 'prompts': []}
+        block = {'mention_rate': m, 'answers': n, 'margin': margin(m, n), 'by_platform': {}, 'by_topic': {}, 'prompts': []}
         for p in ORDER:
             pr, pn = rate([r for r in sub if r.get('platform') == p])
             if pn:
-                block['by_platform'][PLAT[p]] = {'mention_rate': pr, 'answers': pn}
+                block['by_platform'][PLAT[p]] = {'mention_rate': pr, 'answers': pn, 'margin': margin(pr, pn)}
+        topic_sov = sov_of(sub, lambda r: (r.get('topic', '') or '') or '-')
         for t in sorted({r.get('topic', '') or '' for r in sub}):
             tr, tn = rate([r for r in sub if (r.get('topic', '') or '') == t])
-            block['by_topic'][t or '-'] = {'mention_rate': tr, 'answers': tn}
-        # share of voice (position weighted) + competitor counts, per platform
-        sov = defaultdict(lambda: defaultdict(float)); comp = Counter()
-        for r in sub:
-            if r.get('status', 'ok') != 'ok':
-                continue
-            names = split(r.get('brands_mentioned'))
-            for i, b in enumerate(names, 1):
-                sov[r['platform']][b] += POS_W.get(i, 0.2)
-                if b.lower() != brand.lower():
-                    comp[b] += 1
-        block['sov'] = {PLAT.get(p, p): {b: round(100 * v / sum(d.values()), 1) for b, v in sorted(d.items(), key=lambda x: -x[1])[:6]}
-                        for p, d in sov.items() if sum(d.values())}
+            ts = topic_sov.get(t or '-', {})
+            block['by_topic'][t or '-'] = {'mention_rate': tr, 'answers': tn, 'margin': margin(tr, tn),
+                                           'sov': ts.get(brand, 0.0) if ts else None, 'brands_named': len(ts)}
+        # Share of Voice (class definition: our names ÷ all brand names, once per answer) + competitor counts
+        comp = Counter(b for r in sub if r.get('status', 'ok') == 'ok'
+                       for b in dict.fromkeys(split(r.get('brands_mentioned'))) if b.lower() != brand.lower())
+        allv = sov_of(sub).get('all', {})
+        block['sov_all'] = allv.get(brand, 0.0) if allv else None
+        block['brands_named'] = len(allv)
+        block['sov_band'] = sov_band(block['sov_all'], len(allv))
+        block['sov'] = {PLAT.get(p, p): dict(list(d.items())[:6]) for p, d in sov_of(sub, lambda r: r['platform']).items()}
         block['top_competitors'] = comp.most_common(6)
         # per prompt × platform status (matched by prompt_id, not by exact text)
         for pi in dict.fromkeys(r['prompt_id'] for r in sub):
@@ -339,13 +370,21 @@ def main(path, brand=None, out='report', aliases=None, prompts=None, brain=None)
         b = res[lbl]
         if not b['answers']:
             continue
-        L += [f'## {name}', f'Mention rate รวม: **{b["mention_rate"]}%** ({b["answers"]} คำตอบ)', '',
-              '| แพลตฟอร์ม | Mention rate | SoV (ถ่วงตำแหน่ง) ของเรา | ผู้นำ SoV |', '|---|---|---|---|']
+        L += [f'## {name}', f'Mention rate รวม: **{b["mention_rate"]}%** ±{b["margin"]} (n = {b["answers"]} คำตอบ)']
+        if b['sov_all'] is not None:
+            L.append(f'Share of Voice รวม: **{b["sov_all"]}%** ({b["sov_band"]} · AI เอ่ยชื่อ {b["brands_named"]} แบรนด์ · '
+                     f'ค่าเฉลี่ย 100 ÷ {b["brands_named"]} = {round(100 / b["brands_named"], 1)}%)')
+        L += ['', '| แพลตฟอร์ม | Mention rate | n | SoV ของเรา | ผู้นำ SoV |', '|---|---|---|---|---|']
         for p, v in b['by_platform'].items():
             s = b['sov'].get(p, {})
             lead = next(iter(s.items()), ('-', 0))
-            L.append(f'| {p} | {v["mention_rate"]}% | {s.get(brand, 0)}% | {lead[0]} {lead[1]}% |')
-        L += ['', '| หัวข้อ | Mention rate |', '|---|---|'] + [f'| {t} | {v["mention_rate"]}% |' for t, v in b['by_topic'].items()]
+            L.append(f'| {p} | {v["mention_rate"]}% ±{v["margin"]} | {v["answers"]} | {s.get(brand, 0)}% | {lead[0]} {lead[1]}% |')
+        L += ['', '| หัวข้อ | Mention rate | n | SoV ของเรา |', '|---|---|---|---|'] + [
+            f'| {t} | {v["mention_rate"]}% ±{v["margin"]} | {v["answers"]} | ' + (f'{v["sov"]}% ({sov_band(v["sov"], v["brands_named"])})' if v['sov'] is not None else '-') + ' |'
+            for t, v in b['by_topic'].items()]
+        L += ['', 'SoV = ชื่อเรา ÷ ชื่อทุกแบรนด์ในคำตอบ (นับแบรนด์ละ 1 ครั้งต่อคำตอบ) · เกณฑ์ในคลาส (หัวข้อที่มีคู่แข่งราว 8–15 แบรนด์): '
+              '<5% แทบไม่มีเสียง · 5–10% อยู่ในวง · 10–20% กลุ่มนำ · 20%+ เจ้าที่ · แบรนด์น้อย (3–5 เจ้า) เกณฑ์ขยับขึ้น · '
+              '± = ช่วงคลาดเคลื่อน 95% ต่างกันน้อยกว่านี้ = ยังสูสี']
         L += ['', '| ID | Prompt | ' + ' | '.join(PLAT[p] for p in ORDER) + ' | ใครถูกแสดงแทน |', '|---|---|' + '---|' * (len(ORDER) + 1)]
         for e in b['prompts']:
             cells = [f'{e["platforms"][PLAT[p]]["status"]} {e["platforms"][PLAT[p]]["mentioned"]}' if PLAT[p] in e['platforms'] else '-' for p in ORDER]

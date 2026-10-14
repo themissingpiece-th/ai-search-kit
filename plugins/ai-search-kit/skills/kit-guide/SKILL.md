@@ -25,6 +25,6 @@ description: ใช้เมื่อไม่แน่ใจว่าควร�
 
 ## กติกา
 - ตอบภาษาไทย ศัพท์เทคนิคอังกฤษ + ไทยในวงเล็บครั้งแรก
-- ไม่แต่งความสามารถของ skill เกินที่ guide.md บอก · skill ที่ยังไม่มา (action-plan-30d, ai-search-manager, build-prompt-tracker, build-site-checker) บอกว่า "กำลังมา" และเสนอทางทำมือตาม guide.md แทน
+- ไม่แต่งความสามารถของ skill เกินที่ guide.md บอก · ชุดนี้มี 7 skill ตามที่สอนในคลาสเท่านั้น (prompt-finder · ai-visibility-check · site-readiness-audit · brand-brain · ai-content-writer · ai-citable-page-check · kit-guide) — ถ้าผู้ใช้ถามหา skill อื่น บอกว่าไม่มีในชุด แล้วชี้ขั้นถัดไปในลูปหรือแผน 30 วันใน guide.md แทน
 - ไม่รับประกันผล: ทุก skill ช่วยให้ content ดีต่อคนและ AI ดึงคำตอบง่าย ไม่ใช่สูตรให้ AI แนะนำแบรนด์แน่นอน
 - อ้างอิงแนวคิด: Nathan Gotch, *AI SEO For Dummies* (Wiley 2026) ตามบทที่ระบุใน guide.md — สรุปด้วยคำของเรา ไม่คัดลอกข้อความจากหนังสือ

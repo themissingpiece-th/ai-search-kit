@@ -1,22 +1,22 @@
-# เกณฑ์ตรวจความพร้อมเว็บ (Access → Understand → Trust)
+# เกณฑ์ตรวจความพร้อมเว็บ (Discover → Understand → Trust)
 
 ใช้แปลผล `audit.json` · แต่ละข้อมี: ฟิลด์ที่ดู → เกณฑ์ → ทำไมสำคัญ
 หลักคิดจาก *AI SEO For Dummies* บทที่ 2, 10, 11, 22 (สรุปเอง) + เอกสารทางการ Google / OpenAI
 
-## ชั้น 1 — Access (bot เข้ามาอ่านได้ไหม)
+## ชั้น 1 — Discover (AI เจอและเข้ามาอ่านได้ไหม)
 | ข้อ | ฟิลด์ | ✅ ผ่าน | ❌ / ⚠️ | ทำไมสำคัญ |
 |---|---|---|---|---|
 | A1 Status | `pages[].status` | 200 | ❌ 4xx/5xx · ⚠️ ข้อความน้อยมากแต่ตอบ 200 (อาจ soft 404) | หน้าที่ตอบผิดไม่ถูก index และไม่ถูกหยิบไปตอบ |
 | A2 Redirect | `redirect_chain` | 0–1 ทอด | ⚠️ ≥2 ทอด · ❌ วน | redirect หลายทอดเสียเวลา bot และเสี่ยงหลุด |
 | A3 HTTPS | `https` | true | ❌ false | มาตรฐานพื้นฐาน |
 | A4 robots.txt ราย bot | `robots.per_bot[*].allowed` | bot ฝั่ง search อนุญาต | ❌ Googlebot / Bingbot / OAI-SearchBot ถูกบล็อกหน้าสำคัญ · ⚠️ GPTBot / Google-Extended / ClaudeBot ถูกบล็อก = เจ้าของเลือกได้ (training) อธิบายผล | Googlebot = Search + AI Overviews/AI Mode · OAI-SearchBot = ChatGPT search · GPTBot = training · Google-Extended = ใช้ข้อมูลกับ Gemini/AI อื่นของ Google ไม่กระทบอันดับ Search · บล็อกตัว search = หายจากคำตอบ AI นั้น |
-| A5 Firewall / CDN | `ua_test`, `ua_blocked` | ทุก bot ได้ 200 เหมือน browser | ❌ bot ได้ 403/429/503 ขณะ browser ได้ 200 | robots.txt อนุญาตแต่ firewall บล็อก = bot เข้าไม่ได้จริง (ทดสอบแบบจำลอง UA) |
+| A5 Firewall / CDN | `ua_test`, `ua_blocked` | ทุก bot ได้ 200 เหมือน browser | ❌ bot ได้ 403/429/503 ขณะ browser ได้ 200 | robots.txt อนุญาตแต่ firewall บล็อก = bot เข้าไม่ได้จริง (ทดสอบแบบจำลอง UA — bot จริงถูกตรวจจาก IP · Googlebot ได้ 403 ให้เช็กซ้ำใน GSC URL Inspection ก่อนสรุปว่าบล็อก Google) |
 | A6 noindex / nosnippet | `meta_robots`, `x_robots_tag` | ไม่มี noindex/nosnippet · max-snippet:-1 หรือไม่ระบุ | ❌ noindex บนหน้าสำคัญ · ⚠️ nosnippet / max-snippet ต่ำ | noindex = ไม่ขึ้นทั้ง Search และ AI · nosnippet = Google ใช้เนื้อหาใน AI Overviews ไม่ได้ |
 | A7 Canonical | `canonical`, `canonical_is_self` | ชี้ตัวเอง (หรือชี้หน้าหลักที่ตั้งใจ) | ⚠️ ไม่มี · ❌ ชี้ไปหน้าอื่นโดยไม่ตั้งใจ | บอก Google ว่าหน้าไหนคือหน้าหลัก |
 | A8 Sitemap | `sitemaps[]` | 200 และมี `<loc>` · ประกาศใน robots.txt | ⚠️ ไม่ประกาศใน robots · ❌ 404 | ช่วยให้ค้นพบหน้าได้ครบ — ส่งใน GSC + Bing Webmaster Tools ด้วย |
 | A9 เนื้อหาใน HTML | `visible_text_chars`, `likely_js_dependent`, `text_sample` | มีข้อความหลักใน HTML ดิบ | ❌ ข้อความน้อยมาก + script เยอะ = อาจต้องรอ JavaScript | bot บางตัวไม่รัน JavaScript เห็นแต่ HTML ดิบ |
 | A10 ความเร็ว | `pagespeed` | ผ่าน Core Web Vitals | ⚠️ ต่ำกว่าเกณฑ์ · ❔ ไม่มี key | ประสบการณ์ผู้ใช้ + เป็นสัญญาณหนึ่งของ Google |
-| info llms.txt | `llms_txt.status` | — | — | รายงานว่ามี/ไม่มีเท่านั้น: "ทดลองได้ ยังไม่มีหลักฐาน" ไม่นับเป็นปัญหา |
+| info llms.txt | `llms_txt.status` | — | — | รายงานว่ามี/ไม่มีเท่านั้น (info): "ทดลองได้ ยังไม่มีหลักฐาน" ไม่นับเป็นปัญหา · Google ไม่ได้ใช้ llms.txt ใน Search |
 
 ## ชั้น 2 — Understand (อ่านแล้วเข้าใจไหม)
 | ข้อ | ฟิลด์ | ✅ | ⚠️ / ❌ | ทำไมสำคัญ |
@@ -45,5 +45,5 @@
 ปัญหาเดียวกันหลายหน้าที่แก้จุดเดียว (template / plugin / ตั้งค่า CDN) = นับเป็น 1 งาน
 
 ## ต้องเช็คเองหลังรายงาน
-- Google Search Console → URL Inspection (หน้า index แล้วไหม Google เห็นหน้าเหมือนเราไหม) + รายงาน Pages
+- Google Search Console → URL Inspection (หน้า index แล้วไหม Google เห็นหน้าเหมือนเราไหม · TEST LIVE URL) + รายงาน Pages · แก้หน้าแล้ว → REQUEST INDEXING
 - Rich Results Test (schema ใช้ได้ไหม) · PageSpeed Insights (ถ้าไม่ได้ใส่ key) · Bing Webmaster Tools

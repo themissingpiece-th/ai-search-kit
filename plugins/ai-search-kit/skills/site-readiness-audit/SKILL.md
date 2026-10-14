@@ -1,6 +1,6 @@
 ---
 name: site-readiness-audit
-description: ใช้เมื่ออยากรู้ว่าเว็บพร้อมให้ AI เข้าถึง-เข้าใจ-เชื่อถือไหม ("ตรวจเว็บ", "robots.txt บล็อก AI ไหม", "AI readiness", "website audit") หรือมีรายงาน AI Discover Check จาก Mention Lab ให้แปลเป็นงาน — ตรวจ 3 ชั้น Access → Understand → Trust (Google AI Overviews / AI Mode, ChatGPT, Gemini, Perplexity) แล้วสรุป Top 3 สิ่งที่ต้องแก้ก่อน + ข้อความส่งทีมเว็บ
+description: ใช้เมื่ออยากรู้ว่าเว็บพร้อมให้ AI เข้าถึง-เข้าใจ-เชื่อถือไหม ("ตรวจเว็บ", "robots.txt บล็อก AI ไหม", "AI readiness", "website audit") หรือมีรายงาน AI Discover Check จาก Mention Lab ให้แปลเป็นงาน — ตรวจ 3 ชั้น Discover → Understand → Trust (Google AI Overviews / AI Mode, ChatGPT, Gemini, Perplexity) แล้วสรุป Top 3 สิ่งที่ต้องแก้ก่อน + ข้อความส่งทีมเว็บ
 ---
 
 # Site Readiness Audit (ตรวจความพร้อมเว็บสำหรับ SEO & AI Search)
@@ -28,17 +28,18 @@ python3 scripts/audit.py <URL1> <URL2> ... --out audit.json
 ## 4. แปลผลเป็นรายงาน
 อ่าน `references/checklist.md` (เกณฑ์ทุกข้อ + วิธีให้คะแนนลำดับการแก้) แล้วเขียนรายงานตามโครงนี้ และบันทึกเป็นไฟล์ `site-readiness-report-<โดเมน>.md` ให้ผู้ใช้ดาวน์โหลด:
 
-1. **สรุป 3 บรรทัด** — ภาพรวม Access / Understand / Trust อย่างละ 1 บรรทัด
+1. **สรุป 3 บรรทัด** — ภาพรวม Discover / Understand / Trust (ชื่อชั้นและรหัสข้อ A1–A9 · U · T ตรงกับ AI Discover Check ใน Mention Lab) อย่างละ 1 บรรทัด
 2. **Top 3 สิ่งที่ต้องแก้ก่อน** — แต่ละข้อ: ปัญหา · กระทบอะไร (Google / AI ตัวไหน) · แก้ที่ไหน · ส่งต่อให้ใคร (marketing / dev / agency)
 3. **ตารางผลตรวจ** แยก 3 ชั้น: ข้อ · ผล (✅ ผ่าน / ⚠️ ควรปรับ / ❌ มีปัญหา / ❔ ตรวจไม่ได้) · หลักฐานที่เจอ (ค่าจริงจากสคริปต์) · ทำไมสำคัญ
 4. **ต้องเช็คเอง** (สคริปต์มองไม่เห็น): GSC URL Inspection + รายงาน Pages, Rich Results Test, PageSpeed Insights, Bing Webmaster Tools
-5. **ข้อจำกัดของการตรวจนี้** — ตรวจเฉพาะหน้าที่ระบุ ไม่ใช่ทั้งเว็บ · การทดสอบ user-agent เป็นการจำลอง (bot จริงยืนยันด้วย IP) · การเข้าถึงได้ ≠ ถูก index แล้ว
+5. **ข้อจำกัดของการตรวจนี้** — ตรวจเฉพาะหน้าที่ระบุ ไม่ใช่ทั้งเว็บ · การทดสอบ user-agent เป็นการจำลอง (bot จริงยืนยันด้วย IP) — A5 ได้ 403 ในชื่อ Googlebot แต่เบราว์เซอร์ได้ 200 ห้ามสรุปว่าเว็บบล็อก Google ให้เช็กซ้ำใน Search Console → URL Inspection ก่อน · การเข้าถึงได้ ≠ ถูก index แล้ว
 6. **คำสั่งถัดไป** (ปิดท้ายในแชตเสมอ ในกรอบ code เติมชื่อไฟล์ให้แล้ว): ยังไม่มี Brand Brain → `/brand-brain ทำ Brand Brain ของ <แบรนด์> เว็บ <URL หน้าแรก>` · มีแล้ว → `/ai-content-writer ต่อยอดหน้า <URL ที่ตรวจ> ให้ตอบ prompt "<prompt>" ใช้ brand-brain-<แบรนด์>.md และ site-readiness-report-<โดเมน>.md`
 
 ## กติกา
 - เขียนภาษาไทย ศัพท์เทคนิคใช้อังกฤษ + ไทยในวงเล็บครั้งแรก เช่น "canonical (หน้าหลักที่ต้องการให้ index)"
 - รายงานแต่ข้อที่มีหลักฐานจากผลตรวจ — ถ้าไม่มีข้อมูล เขียน ❔ ไม่สรุปเอง
-- llms.txt, Web API, Wikidata = "ทดลองได้ ยังไม่มีหลักฐานว่าช่วย" ไม่นับเป็นปัญหา
+- llms.txt = รายงานว่ามี/ไม่มีเป็นข้อมูลเท่านั้น ไม่นับเป็นปัญหา (Google ไม่ได้ใช้ llms.txt ใน Search) · Web API, Wikidata = "ทดลองได้ ยังไม่มีหลักฐานว่าช่วย" ไม่นับเป็นปัญหา
+- แก้หน้าแล้วอยากให้ Google มาเก็บใหม่ → Google Search Console → URL Inspection → REQUEST INDEXING
 - Schema / FAQ = "factor ที่ช่วยเพิ่มโอกาส ไม่ใช่การันตี" (Google ไม่มี schema พิเศษสำหรับ AI)
 - ไม่แนะนำให้บล็อก/เปิด bot แทนเจ้าของเว็บ — อธิบายผลของแต่ละทางให้เขาตัดสินใจ
 - อ้างอิงแนวคิด: Nathan Gotch, *AI SEO For Dummies* (Wiley 2026) บทที่ 2, 10, 11, 22 · Google Search Central (AI features) · เอกสาร crawler ของ OpenAI — สรุปด้วยคำของเรา ไม่คัดลอกข้อความจากหนังสือ

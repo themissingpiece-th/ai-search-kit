@@ -1,5 +1,14 @@
 # Changelog — AI Search Kit
 
+## 0.3.6 — 2026-10-14
+เช็กกับเนื้อหาคอร์สฉบับสุดท้าย (สไลด์ M0–M6) และให้ kit มีเฉพาะสิ่งที่สอนในคลาส (Ice 14 ต.ค.)
+- ลบ skill ที่ไม่อยู่ในชุด (`action-plan-30d` · `ai-search-manager` · `build-prompt-tracker` · `build-site-checker`) และป้าย "(กำลังมา)" ออกทุกจุด — README · marketplace · kit-guide · ai-visibility-check · action-playbook · ขั้นถัดไปชี้ไปลูปจริง (Mention Lab วัดซ้ำ จ./พฤ. → `/ai-visibility-check`) และแผน 30 วันของ Module 6
+- `ai-visibility-check` (analyze.py): **Share of Voice = ชื่อเรา ÷ ชื่อทุกแบรนด์ในคำตอบ** (นับแบรนด์ละ 1 ครั้งต่อคำตอบ) ตามนิยามในคลาส แทนสูตรถ่วงตำแหน่ง · Mention Rate บอก **n และ ±** (95%) ทุกตาราง · SoV รวมและรายหัวข้อพร้อมช่วง <5% แทบไม่มีเสียง · 5–10% อยู่ในวง · 10–20% กลุ่มนำ · 20%+ เจ้าที่ (M3)
+- `site-readiness-audit`: ชั้นแรกชื่อ **Discover** (เดิม Access) ให้ตรง M4 และ AI Discover Check · A5 ได้ 403 ในชื่อ Googlebot = ต้องเช็กซ้ำใน GSC URL Inspection ก่อนสรุป · llms.txt = info (Google ไม่ได้ใช้ใน Search)
+- `ai-citable-page-check` · `ai-content-writer` · `kit-guide`: หลังเผยแพร่ → **Request Indexing ใน Google Search Console** (URL Inspection) ตาม M5 · kit-guide มีแผน 30 วันรายสัปดาห์ตาม M6
+- kit-images/post/: เพิ่ม `skill-map-30d-ci-6skills.png` (แผนที่ 6 skill · ไฟล์เดิมยังอยู่)
+- tests: เพิ่มเทสต์ SoV ตามนิยามคลาส + n/±
+
 ## 0.3.5 — 2026-10-13
 - `prompt-finder`: ชุดคลาสเปลี่ยนเป็น **10 ข้อ = 5 หัวข้อ × 2 (ในนั้นมีชื่อแบรนด์ 2–3 ข้อ)** แทน 2–3 หัวข้อ · non-branded 7 + branded 3 — ให้ตรงกับสไลด์ Workshop 1 · make_outputs.py เตือนเมื่อหัวข้อไม่ใช่ 5 × 2 หรือ branded ไม่ใช่ 2–3 · ใช้งานจริงแนะนำหัวข้อละ 10–20 prompt (Ice OK 13 ต.ค.)
 - `kit-guide`: คำอธิบาย /prompt-finder ตามกติกาใหม่

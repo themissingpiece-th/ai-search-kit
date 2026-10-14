@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Website readiness audit for SEO & AI Search (Access / Understand / Trust).
+"""Website readiness audit for SEO & AI Search (Discover / Understand / Trust).
 
 Standard library only. Usage:
     python3 audit.py https://www.example.com/ https://www.example.com/product [--psi-key KEY] [--out result.json]
