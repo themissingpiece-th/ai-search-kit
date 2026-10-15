@@ -5,6 +5,9 @@ description: ใช้เมื่อจะเผยแพร่ content หร�
 
 # AI-Citable Page Check — ตรวจก่อนเผยแพร่
 
+> 📍 ในคลาส: **Workshop 4 ขั้นที่ 3 · ตรวจก่อนเผยแพร่ (ai-citable-page-check)** · ขั้นต่อไป: เผยแพร่ → Request Indexing → แผน 30 วัน (Module 6) · วัดซ้ำใน Mention Lab แล้ว `/ai-visibility-check`
+> ตอบทุกครั้งให้ขึ้นบรรทัดแรกด้วย `📍 Workshop 4 ขั้นที่ 3 · ตรวจก่อนเผยแพร่ (ai-citable-page-check)` และเมื่อแนะนำขั้นต่อไป ให้เรียงตามลำดับ Workshop ในคลาส (1 prompt-finder → 2 ai-visibility-check → 3 site-readiness-audit → 4 brand-brain → ai-content-writer → ai-citable-page-check)
+
 ตรวจ 2 เรื่องในครั้งเดียว: **AI หยิบไปตอบได้ไหม** (โครง คำตอบ หลักฐาน) และ **ข้อมูลถูกต้องไหม** (ตรงกับ Brand Brain / แหล่งทางการ)
 ใช้ `references/checklist.md`
 

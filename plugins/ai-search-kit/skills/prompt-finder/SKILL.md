@@ -5,6 +5,9 @@ description: ใช้เมื่ออยากรู้ว่าลูกค�
 
 # Prompt Finder v2 — เลือก prompt ด้วย Prompt Map
 
+> 📍 ในคลาส: **Workshop 1 · หา prompt (prompt-finder)** · ขั้นต่อไป Workshop 2: นำ CSV เข้า Mention Lab → วัด baseline → `/ai-visibility-check`
+> ตอบทุกครั้งให้ขึ้นบรรทัดแรกด้วย `📍 Workshop 1 · หา prompt (prompt-finder)` และเมื่อแนะนำขั้นต่อไป ให้เรียงตามลำดับ Workshop ในคลาส (1 prompt-finder → 2 ai-visibility-check → 3 site-readiness-audit → 4 brand-brain → ai-content-writer → ai-citable-page-check)
+
 ใน AI Search เราวัดเป็น **prompt** ไม่ใช่ keyword และ prompt ไม่มี search volume — ผลวัดจะมีความหมายก็ต่อเมื่อเลือก prompt ถูก skill นี้ทำให้การเลือกมีเหตุผลและทำซ้ำได้
 อ่าน `references/prompt-map.md` ก่อนเริ่มทุกครั้ง
 

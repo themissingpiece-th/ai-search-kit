@@ -154,16 +154,19 @@ def test_latin_alias_matches_whole_word_only():
     assert A.has_brand('รถBYDดีไหม', A.brand_names('BYD', [], []))
 
 
-def test_no_brand_brain_warns_for_branded():
+def test_no_brand_brain_is_a_note_not_a_warning():
+    # Workshop 2 runs before Brand Brain (Workshop 4): note at the end, never the ⚠️ box or the next step
     rows = [_row('BYD Atto 3 ราคาเท่าไร', branded='Y', mentioned='Y')]
     res, md, js, out = _run(rows, brand='BYD')
-    assert any('ยังไม่มี Brand Brain' in w and 'ต้องตรวจ' in w for w in res['warnings'])
+    assert any('ยังไม่มี Brand Brain' in n and 'ต้องตรวจ' in n for n in res['notes'])
+    assert not any('Brand Brain' in w for w in res['warnings'])
+    assert 'Workshop 3' in md and md.index('### หมายเหตุ') > md.index('## เว็บที่ AI อ้างบ่อย')
     d = tempfile.mkdtemp()
     brain = os.path.join(d, 'brand-brain-BYD.md')
     open(brain, 'w').write('# Brand Brain')
     res, *_ = _run(rows, brand='BYD', brain=brain)
     shutil.rmtree(d)
-    assert not any('Brand Brain' in w for w in res['warnings'])
+    assert not res['notes']
 
 
 # ---------- 5ข / 5ค: scoring rules in make_outputs.py ----------

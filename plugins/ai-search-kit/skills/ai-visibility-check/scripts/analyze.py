@@ -350,12 +350,14 @@ def main(path, brand=None, out='report', aliases=None, prompts=None, brain=None)
             block['prompts'].append(entry)
         res[lbl] = block
 
+    notes = []
     if res['branded']['answers'] and not res['brand_brain']:
-        warns.append('ยังไม่มี Brand Brain — ข้อมูลในคำตอบ branded (ราคา ประกัน สเปก เงื่อนไข) ตรวจกับข้อมูลทางการไม่ได้ '
-                     'ให้ติด "ต้องตรวจ" ทุกข้อ ห้ามสรุปว่าถูกหรือผิด · ทำ /brand-brain แล้วรันใหม่ด้วย --brain brand-brain-<แบรนด์>.md')
+        notes.append('ยังไม่มี Brand Brain (ปกติในคลาส — ทำใน Workshop 4) · ข้อมูลในคำตอบ branded (ราคา ประกัน สเปก เงื่อนไข) '
+                     'จึงติด "ต้องตรวจ" ไว้ก่อน ห้ามสรุปว่าถูกหรือผิด · ทำ Brand Brain แล้วรันใหม่ด้วย --brain brand-brain-<แบรนด์>.md')
     cited = Counter(d for r in rows if r.get('status', 'ok') == 'ok' for d in split(r.get('cited_domains')))
     res['top_cited_domains'] = cited.most_common(15)
     with open(out + '.json', 'w', encoding='utf-8') as f:
+        res['notes'] = notes
         json.dump(res, f, ensure_ascii=False, indent=1)
 
     L = [f'# AI Visibility — {brand}', f'ข้อมูล: {len(rows)} คำตอบ · รอบ: {", ".join(res["run_dates"])}' +
@@ -392,10 +394,15 @@ def main(path, brand=None, out='report', aliases=None, prompts=None, brain=None)
             L.append(f'| {e["prompt_id"]} | {e["prompt"]} | ' + ' | '.join(cells) + f' | {", ".join(inst[:4])} |')
         L.append('')
     L += ['## เว็บที่ AI อ้างบ่อย', '| โดเมน | ครั้ง |', '|---|---|'] + [f'| {d} | {c} |' for d, c in res['top_cited_domains']]
+    if notes:
+        L += ['', '### หมายเหตุ'] + [f'- {n}' for n in notes]
+    L += ['', '**ขั้นต่อไปในคลาส:** Workshop 3 → /site-readiness-audit (ตรวจว่า AI เข้าเว็บและอ่านได้ไหม) · Workshop 4 → /brand-brain → /ai-content-writer → /ai-citable-page-check']
     with open(out + '.md', 'w', encoding='utf-8') as f:
         f.write('\n'.join(L))
     for w in warns:
         print('WARN:', w)
+    for n in notes:
+        print('NOTE:', n)
     print(f'saved {out}.json + {out}.md')
     return res
 

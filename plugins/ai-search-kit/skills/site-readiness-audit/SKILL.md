@@ -5,6 +5,9 @@ description: ใช้เมื่ออยากรู้ว่าเว็บ�
 
 # Site Readiness Audit (ตรวจความพร้อมเว็บสำหรับ SEO & AI Search)
 
+> 📍 ในคลาส: **Workshop 3 · ตรวจเว็บ (site-readiness-audit)** · ขั้นต่อไป Workshop 4: `/brand-brain` → `/ai-content-writer` → `/ai-citable-page-check`
+> ตอบทุกครั้งให้ขึ้นบรรทัดแรกด้วย `📍 Workshop 3 · ตรวจเว็บ (site-readiness-audit)` และเมื่อแนะนำขั้นต่อไป ให้เรียงตามลำดับ Workshop ในคลาส (1 prompt-finder → 2 ai-visibility-check → 3 site-readiness-audit → 4 brand-brain → ai-content-writer → ai-citable-page-check)
+
 ตรวจเว็บของผู้ใช้ 1–4 หน้า แล้วออกรายงานภาษาไทยที่คนไม่ใช่ dev อ่านรู้เรื่อง: ผ่าน / มีปัญหา / ตรวจไม่ได้ + Top 3 สิ่งที่ต้องแก้ + สิ่งที่ต้องเช็คเองใน Google Search Console
 
 ## 1. ขอข้อมูล (ถามเฉพาะที่ขาด)

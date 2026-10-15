@@ -15,7 +15,7 @@
 ## ติดตั้งใน Claude Code (แท็บ Code) — ทางเลือก
 Settings → Plugins → **+ Add → Add marketplace → Add from a repository** → `themissingpiece-th/ai-search-kit` → Sync → Add · (Cowork ไม่เห็น plugin ที่ติดตั้งทางนี้)
 
-## Skill ในชุด (v0.3.6 — 7 skill ตามที่สอนในคลาส)
+## Skill ในชุด (v0.3.7 — 7 skill ตามที่สอนในคลาส)
 | Skill | ทำอะไร | สถานะ |
 |---|---|---|
 | `kit-guide` | ไม่แน่ใจว่าใช้ตัวไหน → พิมพ์ `/kit-guide` ถามว่าอยากทำอะไร แล้วชี้ skill ที่ถูก + สิ่งที่ต้องเตรียม + ประโยคสั่ง | ✅ v0.1 |

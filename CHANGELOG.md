@@ -1,5 +1,11 @@
 # Changelog — AI Search Kit
 
+## 0.3.7 — 2026-10-15
+ลำดับคำแนะนำตรงกับลำดับ Workshop ในสไลด์ (Ice 15 ต.ค.)
+- ทุก skill ขึ้นบรรทัดแรกว่าใช้ใน Workshop ไหน (📍 Workshop 1 prompt-finder · 2 ai-visibility-check · 3 site-readiness-audit · 4 brand-brain → ai-content-writer → ai-citable-page-check) และแนะนำขั้นต่อไปตามลำดับนี้
+- `ai-visibility-check`: ขั้นต่อไป = Workshop 3 `/site-readiness-audit` (แนบ JSON ผลตรวจเว็บจาก Mention Lab) ไม่ส่งไปทำ Brand Brain ก่อน · ยังไม่มี Brand Brain = หมายเหตุท้ายรายงาน (ปกติในคลาส ทำใน Workshop 4) ไม่ใช่กล่อง ⚠️ · รายงานมีบรรทัด "ขั้นต่อไปในคลาส"
+- tests: เทสต์ Brand Brain เป็นหมายเหตุ ไม่ใช่คำเตือน
+
 ## 0.3.6 — 2026-10-14
 เช็กกับเนื้อหาคอร์สฉบับสุดท้าย (สไลด์ M0–M6) และให้ kit มีเฉพาะสิ่งที่สอนในคลาส (Ice 14 ต.ค.)
 - ลบ skill ที่ไม่อยู่ในชุด (`action-plan-30d` · `ai-search-manager` · `build-prompt-tracker` · `build-site-checker`) และป้าย "(กำลังมา)" ออกทุกจุด — README · marketplace · kit-guide · ai-visibility-check · action-playbook · ขั้นถัดไปชี้ไปลูปจริง (Mention Lab วัดซ้ำ จ./พฤ. → `/ai-visibility-check`) และแผน 30 วันของ Module 6

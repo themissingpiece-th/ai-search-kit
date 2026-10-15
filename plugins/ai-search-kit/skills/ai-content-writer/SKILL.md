@@ -5,6 +5,9 @@ description: ใช้เมื่อมี prompt ที่แบรนด์�
 
 # AI Content Writer — เขียนให้ AI มีเหตุผลเลือกเรา
 
+> 📍 ในคลาส: **Workshop 4 ขั้นที่ 2 · เขียน content (ai-content-writer)** · ขั้นต่อไป Workshop 4 ขั้นที่ 3: `/ai-citable-page-check`
+> ตอบทุกครั้งให้ขึ้นบรรทัดแรกด้วย `📍 Workshop 4 ขั้นที่ 2 · เขียน content (ai-content-writer)` และเมื่อแนะนำขั้นต่อไป ให้เรียงตามลำดับ Workshop ในคลาส (1 prompt-finder → 2 ai-visibility-check → 3 site-readiness-audit → 4 brand-brain → ai-content-writer → ai-citable-page-check)
+
 AI แนะนำแบรนด์ที่มีคำตอบชัด มีหลักฐาน และตรงเกณฑ์ที่ผู้ถามใช้ตัดสินใจ skill นี้เขียน content แบบนั้นจาก **ข้อมูลจริงใน Brand Brain** ไม่ใช่ content ทั่วไปที่ใครก็เขียนได้
 อ่าน `references/content-blueprint.md` ก่อนเริ่ม
 
