@@ -46,3 +46,6 @@ python3 scripts/audit.py <URL1> <URL2> ... --out audit.json
 - Schema / FAQ = "factor ที่ช่วยเพิ่มโอกาส ไม่ใช่การันตี" (Google ไม่มี schema พิเศษสำหรับ AI)
 - ไม่แนะนำให้บล็อก/เปิด bot แทนเจ้าของเว็บ — อธิบายผลของแต่ละทางให้เขาตัดสินใจ
 - อ้างอิงแนวคิด: Nathan Gotch, *AI SEO For Dummies* (Wiley 2026) บทที่ 2, 10, 11, 22 · Google Search Central (AI features) · เอกสาร crawler ของ OpenAI — สรุปด้วยคำของเรา ไม่คัดลอกข้อความจากหนังสือ
+
+---
+© 2026 บริษัท เดอะ มิสซิ่ง พีซ จำกัด (The Missing Piece) · AI Search Kit · สัญญาอนุญาต CC BY-NC-SA 4.0 — ใช้กับแบรนด์ตัวเองได้ ต้องให้เครดิต ห้ามขายหรือนำไปสอนเก็บเงิน · รายละเอียดในไฟล์ LICENSE

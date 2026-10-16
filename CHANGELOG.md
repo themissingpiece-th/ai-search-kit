@@ -1,5 +1,11 @@
 # Changelog — AI Search Kit
 
+## 0.3.8 — 2026-10-16
+ลิขสิทธิ์ (Ice "OK license Kit v0.3.8")
+- เพิ่มไฟล์ `LICENSE`: © 2026 บริษัท เดอะ มิสซิ่ง พีซ จำกัด · CC BY-NC-SA 4.0 (ใช้กับแบรนด์ตัวเองได้ · ต้องให้เครดิต · ห้ามขาย/สอนเก็บเงิน · ดัดแปลงต้องใช้สัญญาเดียวกัน) + สรุปภาษาไทย
+- README มีหัวข้อลิขสิทธิ์ · ท้าย skill ทุกตัวมีบรรทัดลิขสิทธิ์ · plugin.json มี `license`
+- ไม่เปลี่ยนการทำงานของ skill
+
 ## 0.3.7 — 2026-10-15
 ลำดับคำแนะนำตรงกับลำดับ Workshop ในสไลด์ (Ice 15 ต.ค.)
 - ทุก skill ขึ้นบรรทัดแรกว่าใช้ใน Workshop ไหน (📍 Workshop 1 prompt-finder · 2 ai-visibility-check · 3 site-readiness-audit · 4 brand-brain → ai-content-writer → ai-citable-page-check) และแนะนำขั้นต่อไปตามลำดับนี้

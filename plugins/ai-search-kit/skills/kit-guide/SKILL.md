@@ -28,3 +28,6 @@ description: ใช้เมื่อไม่แน่ใจว่าควร�
 - ไม่แต่งความสามารถของ skill เกินที่ guide.md บอก · ชุดนี้มี 7 skill ตามที่สอนในคลาสเท่านั้น (prompt-finder · ai-visibility-check · site-readiness-audit · brand-brain · ai-content-writer · ai-citable-page-check · kit-guide) — ถ้าผู้ใช้ถามหา skill อื่น บอกว่าไม่มีในชุด แล้วชี้ขั้นถัดไปในลูปหรือแผน 30 วันใน guide.md แทน
 - ไม่รับประกันผล: ทุก skill ช่วยให้ content ดีต่อคนและ AI ดึงคำตอบง่าย ไม่ใช่สูตรให้ AI แนะนำแบรนด์แน่นอน
 - อ้างอิงแนวคิด: Nathan Gotch, *AI SEO For Dummies* (Wiley 2026) ตามบทที่ระบุใน guide.md — สรุปด้วยคำของเรา ไม่คัดลอกข้อความจากหนังสือ
+
+---
+© 2026 บริษัท เดอะ มิสซิ่ง พีซ จำกัด (The Missing Piece) · AI Search Kit · สัญญาอนุญาต CC BY-NC-SA 4.0 — ใช้กับแบรนด์ตัวเองได้ ต้องให้เครดิต ห้ามขายหรือนำไปสอนเก็บเงิน · รายละเอียดในไฟล์ LICENSE

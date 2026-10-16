@@ -15,7 +15,7 @@
 ## ติดตั้งใน Claude Code (แท็บ Code) — ทางเลือก
 Settings → Plugins → **+ Add → Add marketplace → Add from a repository** → `themissingpiece-th/ai-search-kit` → Sync → Add · (Cowork ไม่เห็น plugin ที่ติดตั้งทางนี้)
 
-## Skill ในชุด (v0.3.7 — 7 skill ตามที่สอนในคลาส)
+## Skill ในชุด (v0.3.8 — 7 skill ตามที่สอนในคลาส)
 | Skill | ทำอะไร | สถานะ |
 |---|---|---|
 | `kit-guide` | ไม่แน่ใจว่าใช้ตัวไหน → พิมพ์ `/kit-guide` ถามว่าอยากทำอะไร แล้วชี้ skill ที่ถูก + สิ่งที่ต้องเตรียม + ประโยคสั่ง | ✅ v0.1 |
@@ -29,3 +29,6 @@ Settings → Plugins → **+ Add → Add marketplace → Add from a repository**
 ## หมายเหตุ
 หลักคิดอ้างอิง Nathan Gotch, *AI SEO For Dummies* (Wiley 2026) เป็นรายบท และเอกสารทางการของ Google / OpenAI — เนื้อหาใน skill เขียนสรุปด้วยคำของเราเอง ไม่มีข้อความจากหนังสือ
 ผลตรวจเป็นหลักฐาน ณ เวลานั้น ไม่รับประกันอันดับหรือการถูกเอ่ยชื่อใน AI
+
+## ลิขสิทธิ์
+© 2026 บริษัท เดอะ มิสซิ่ง พีซ จำกัด (The Missing Piece) · สัญญาอนุญาต [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — ใช้กับแบรนด์ของตัวเองหรือองค์กรได้ฟรีและดัดแปลงได้ · ต้องให้เครดิต "AI Search Kit โดย The Missing Piece" · ห้ามขาย ห้ามนำไปสอนหรือรวมในคอร์ส/บริการที่เก็บเงิน · ดัดแปลงแล้วเผยแพร่ต้องใช้สัญญาเดียวกัน · ขออนุญาตใช้เชิงพาณิชย์: https://themissingpiece.co.th/contact/ · ตัวสัญญาเต็มในไฟล์ [LICENSE](LICENSE)
